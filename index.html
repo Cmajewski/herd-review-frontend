@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herd</title>
+</head>
+<script type="text/javascript" src="src/index.js"></script>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div id="product-header">
+      <img src="file:///Users/caitlinmajewski/Desktop/Herd_Logo-removebg-preview.png" width
+        alt="product-header"
+      />
+    </div>
+
+    <div class="container">
+      <form class="add-product-form">
+        <h3>Create a product!</h3>
+
+        <input
+          type="text"
+          name="name"
+          value=""
+          placeholder="Product Name"
+          class="input-text"
+        />
+        <br />
+        <input
+          type="text"
+          name="image"
+          value=""
+          placeholder="Product Thumbnail URL"
+          class="input-text"
+        />
+        <br />
+        <input
+          type="submit"
+          name="submit"
+          value="Create new product"
+          class="submit"
+        />
+      </form>
+    </div>
+    <p style="text-align:center">
+        <button id="new-product-btn">Review Product!</button>
+        <br>
+        <br>
+      Be heard! A place for Women to share health and wellness products and their personal reviews!
+    </p>
+
+    <div id="product-collection"></div>
+  </body>
+</html>
