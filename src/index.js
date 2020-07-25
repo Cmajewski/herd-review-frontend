@@ -23,11 +23,11 @@ function createproductCard(product){
 
   button.addEventListener("click", event=>{
     updateLikes(event);
-
   });
 
   card.append(h2,img,p,button);
   productCollection.append(card);
+
 
 };
 
@@ -97,8 +97,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   form.addEventListener("submit",function(event){
     event.preventDefault();
-    let newproduct=Object.assign({},{name:event.target[0].value},{image: event.target[1].value})
-    postproduct(newproduct);
+    let newproduct=Object.assign({},{name:event.target[0].value},{image_url: event.target[1].value},{likes:0})
+    createproductCard(newproduct);
+    event.target[0].value=""
+    event.target[1].value=""
+   
   })
 
   const addBtn = document.querySelector("#new-product-btn");
