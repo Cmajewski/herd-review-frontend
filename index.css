@@ -30,7 +30,7 @@ body {
     height: 25rem;
     display: inline-grid;
     margin: 1rem 2rem;
-    box-shadow: 3px 4px #e04b52
+    box-shadow: 3px 4px #ff5757
   }
   
   .product-avatar {
@@ -41,7 +41,7 @@ body {
   
   button {
     position: relative;
-    background-color: #e04b52;
+    background-color: #ff5757;
     border: none;
     border-radius: 5px;
     height: 3rem;
@@ -58,7 +58,7 @@ body {
   }
   
   .container {
-    color: #e04b52;
+    color: #ff5757;
     padding: 1rem;
     width: stretch;
     height: auto;
@@ -73,7 +73,7 @@ body {
   
   .submit {
     position: relative;
-    background-color: #e04b52;
+    background-color: #ff5757;
     border-radius: 5px;
     height: 2rem;
     width: max-content;
@@ -86,8 +86,8 @@ body {
   
   .submit:hover {
     background-color: whitesmoke;
-    border: #e04b52 solid 1px;
-    color: #e04b52;
+    border: #ff5757 solid 1px;
+    color: #ff5757;
   }
   
   
