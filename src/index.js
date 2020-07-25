@@ -1,9 +1,3 @@
-fetch("http://localhost:3000/products")
-.then(response=>response.json())
-.then(console.log())
-
-
-
 
 let addproduct = false;
 
@@ -16,7 +10,7 @@ function createproductCard(product){
   h2.innerText=product.name;
 
   let img=document.createElement("img");
-  img.src=product.image;
+  img.src=product.image_url;
   img.setAttribute("class","product-avatar");
 
   let p=document.createElement("p");
@@ -61,7 +55,7 @@ function postproduct(newproduct) {
     },
       body: JSON.stringify({
         name: newproduct.name,
-        image: newproduct.image,
+        image: newproduct.image_url,
         likes: 0
       })
 })
