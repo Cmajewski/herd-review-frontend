@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: monospace;
+    font-family: 'Courier New', Courier;
   }
   
   #product-header {
@@ -13,9 +13,11 @@ body {
   }
   
   #product-header img {
-      display: flex;
-    height: 10rem;
+    display: flex;
+    height: 17rem;
     width: auto;
+    position: relative;
+    top: -70px; 
   }
   
   #product-collection {
@@ -59,6 +61,7 @@ body {
   
   .container {
     color: #ff5757;
+    text-align: center;
     padding: 1rem;
     width: stretch;
     height: auto;
@@ -68,7 +71,12 @@ body {
   }
   
   .add-product-form {
-       width: 80%
+    text-align: center;
+
+  }
+  .herd-bio {
+    text-align: center;
+    padding-top: 30px;
   }
   
   .submit {
@@ -91,12 +99,21 @@ body {
   }
   
   
-  .input-text {
-    border-radius: 5px;
+  #input-text {
+    border-radius: 10px;
     height: 2rem;
-    width: 60%;
+    width: 30%;
     font-size: 18px;
-    font-family: monospace;
+    font-family: "Courier New", Courier;
     margin: 3px;
   }
+  #input-textarea {
+    border-radius: 10px;
+    height: 10rem;
+    width: 30%;
+    font-size: 18px;
+    font-family: "Courier New", Courier;
+    margin: 3px;
+  }
+
   

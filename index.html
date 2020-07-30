@@ -8,48 +8,46 @@
 <script type="text/javascript" src="src/index.js"></script>
     <link rel="stylesheet" href="index.css" />
   </head>
+
   <body>
     <div id="product-header">
-      <img src="file:///Users/caitlinmajewski/Desktop/Herd_Logo-removebg-preview.png" width
+      <img src="file:///Users/caitlinmajewski/Desktop/Herd_Logo-removebg-preview.png" 
         alt="product-header"
       />
     </div>
 
+    
     <div class="container">
       <form class="add-product-form">
         <h3>Create a product!</h3>
-
-        <input
-          type="text"
-          name="name"
-          value=""
-          placeholder="Product Name"
-          class="input-text"
-        />
-        <br />
-        <input
-          type="text"
-          name="image"
-          value=""
-          placeholder="Product Thumbnail URL"
-          class="input-text"
-        />
-        <br />
-        <input
-          type="submit"
-          name="submit"
-          value="Create new product"
-          class="submit"
-        />
+        <input type="text" name="name" value="" placeholder="Product Name" id="input-text"/><br>
+        <input type="text" name="brand" value="" placeholder="Brand" id="input-text"/><br>
+        <input type="text" name="image" value="" placeholder="Product Image URL" id="input-text"/><br>
+        <select name="category" id="input-text">
+          <option value="" disabled selected hidden>Product Category:</option>
+          <option value="1">Skincare</option>
+          <option value="2">Fitness & Nutrition</option>
+          <option value="3">Bath & Body</option>
+          <option value="4">Vitamins & Minerals</option>
+          <option value="5">Hair</option>
+          <option value="6">Makeup</option>
+          <option value="6">Health Aids</option>
+        </select><br>
+        <textarea name="description" id="input-textarea" placeholder="Product Description" cols="30" rows="10"></textarea>
+        <br>
+        <input type="submit" name="submit" value="Create new product" class="submit"/>
       </form>
     </div>
+  
+    <div class="herd-bio">
+      Be heard! A place for women to share and review health and wellness products!
+    </div>
+    
+
     <p style="text-align:center">
         <button id="new-product-btn">Add Product!</button>
-        <br>
-        <br>
-      Be heard! A place for Women to share health and wellness products and their personal reviews!
     </p>
-
+    
     <div id="product-collection"></div>
   </body>
 </html>
