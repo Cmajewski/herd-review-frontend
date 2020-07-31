@@ -43,31 +43,23 @@ function getProducts(){
     const category=form.category.value
     const description=form.description.value
     const image=form.image.value
-    postFetch(name,brand,category,description,image)
+    const likes=0
+    postFetch(name,brand,category,description,image,likes)
     form.reset()
   }
 
-  function postFetch(name,brand,category,description,image_url){
+  function postFetch(name,brand,category,description,image_url,likes){
+    const bodyData={name, brand, category, description, image_url,likes}
     fetch("http://localhost:3000/products",{
       method: "Post",
       headers:{
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({
-        name: name,
-        brand:brand,
-        category: category,
-        description: description,
-        image_url: image_url,
-        likes:0
-      })
+      body: JSON.stringify(bodyData)
     })
-    .then(response=>response.json())
-    .then(products=>{
-      console.log(products);
-    })
-     
+    .then(response=>response.json()) 
+    .then(product=>console.log(product)); 
   }
 
 
