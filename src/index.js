@@ -2,7 +2,6 @@ let btnStatus = false;
 
 document.addEventListener("DOMContentLoaded",()=>{
   getProducts();
-
   const form=document.querySelector(".add-product-form");
   const addProductBtn = document.querySelector("#new-product-btn");
   const container = document.querySelector(".container");
@@ -38,12 +37,14 @@ function getProducts(){
 
   function formHandler(e){
     event.preventDefault()
-    const name=document.querySelector(".add-product-form").name.value
-    const brand=document.querySelector(".add-product-form").brand.value
-    const category=document.querySelector(".add-product-form").category.value
-    const description=document.querySelector(".add-product-form").description.value
-    const image=document.querySelector(".add-product-form").image.value
-    postFetch(name,brand,image,description)
+    const form=document.querySelector(".add-product-form");
+    const name=form.name.value
+    const brand=form.brand.value
+    const category=form.category.value
+    const description=form.description.value
+    const image=form.image.value
+    postFetch(name,brand,category,description,image)
+    form.reset()
   }
 
   function postFetch(name,brand,category,description,image_url){
@@ -59,9 +60,13 @@ function getProducts(){
         category: category,
         description: description,
         image_url: image_url,
-        likes: 0
+        likes:0
       })
-    });
+    })
+    .then(response=>response.json())
+    .then(products=>{
+      console.log(products);
+    })
      
   }
 
