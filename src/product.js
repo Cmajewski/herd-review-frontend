@@ -53,10 +53,16 @@ class Product {
     
         let reviews=document.createElement("p")
         reviews.innerText=`${this.reviews.length} Reviews`;
-        reviews.setAttribute("class","card-format")
+        reviews.setAttribute("class","button")
+
+        reviews.addEventListener("click", e=>this.displayReviews(e));
           
         card.append(name,brand,category,description,img,reviews,upButton,like,downButton);
         productContainer.append(card);
+      }
+
+      displayReviews(e){
+          console.log("hi")
       }
 
     

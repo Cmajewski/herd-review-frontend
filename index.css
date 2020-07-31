@@ -73,6 +73,13 @@ body {
     justify-self: center;
   }
   
+  .button {
+    background-color: whitesmoke;
+    border: #ff5757 solid .5px;
+    color: #ff5757;
+    width: 6rem;
+  }
+  
   button:hover {
     background-color: whitesmoke;
     border: #ff5757 solid 1px;

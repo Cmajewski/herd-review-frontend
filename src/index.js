@@ -68,6 +68,7 @@ function getProducts(){
 
   
   function updateLikes(e){
+    e.preventDefault();
     const id=parseInt(e.target.id)
     const product=Product.findById(id)
     if (e.target.className="up-btn"){
