@@ -1,3 +1,5 @@
+
+
 class Product {
     constructor (data){
         this.id=data.id;
@@ -62,7 +64,31 @@ class Product {
       }
 
       displayReviews(e){
-          console.log("hi")
+          const card=e.target.parentNode
+      
+        //   if (card.childNode) {
+        //     reviewCard.style.display = "block";
+        //   } else {
+        //     reviewCard.style.display = "none";
+        //   }
+        debugger;
+          this.reviews.forEach(review=>{
+            let reviewCard=document.createElement("div");
+            reviewCard.setAttribute("class","review-card")
+            let name=document.createElement("p");
+            name.innerText=`${review.name}`
+
+            let rating=document.createElement("p");
+            rating.innerText=`Rating: ${review.rating}`
+
+            let comment=document.createElement("p");
+            comment.innerText=`Comment: ${review.comment}`
+
+            reviewCard.append(name,rating,comment);
+            card.append(reviewCard)
+          })
+
+          
       }
 
     

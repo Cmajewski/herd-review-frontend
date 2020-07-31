@@ -95,11 +95,6 @@ function getProducts(){
   }
 
 
-   function viewReviews(e){
-
-   }
-   
-
 
 // -----------
 
