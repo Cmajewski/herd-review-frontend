@@ -27,13 +27,10 @@ function getProducts(){
     fetch ("http://localhost:3000/products")
     .then(response=>response.json())
     .then(product=>{
-      product.forEach(product=>createproductCard(product)) 
+      product.forEach(product=>createProductCard(product)) 
     })
   }
 
-  function createproductCard(){
-   
-  }
 
   function formHandler(e){
     event.preventDefault()
@@ -59,7 +56,48 @@ function getProducts(){
       body: JSON.stringify(bodyData)
     })
     .then(response=>response.json()) 
-    .then(product=>console.log(product)); 
+    .then(product=>createProductCard(product)); 
+  }
+
+
+
+  function createProductCard(product){
+    const productContainer=document.querySelector("#product-collection");
+    let card=document.createElement("div");
+    card.setAttribute("class","card");
+
+    let name=document.createElement("h3")
+    name.innerText=product.name
+
+    let brand=document.createElement("h2")
+    brand.innerText=product.brand
+
+    let img=document.createElement("img");
+    img.src=product.image_url;
+    img.setAttribute("class","product-avatar");
+
+    let category=document.createElement("p");
+    category.innerText=product.category
+
+    let description=document.createElement("p");
+    description.innerText=product.description
+
+    let like=document.createElement("p");
+    like.innerText=`${product.likes} like`;
+
+    let upButton=document.createElement("button");
+      upButton.innerText="▲";
+      upButton.setAttribute("class","like-btn");
+      upButton.setAttribute("id",product.id);
+
+    let downButton=document.createElement("button");
+      downButton.innerText="▼";
+      downButton.setAttribute("class","like-btn");
+      downButton.setAttribute("id",product.id);
+
+      card.append(name,brand,img,category,description,like,upButton,downButton);
+      productContainer.append(card);
+
   }
 
 
