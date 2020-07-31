@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   const form=document.querySelector(".add-product-form");
   const addProductBtn = document.querySelector("#new-product-btn");
   const container = document.querySelector(".container");
+ 
         
   form.addEventListener("submit",e=>{
   formHandler(e)
@@ -65,26 +66,36 @@ function getProducts(){
     })
   }
 
-
-  // upButton.addEventListener("click", event=>updateLikes(event));
-  // downButton.addEventListener("click", event=> decreaseLikes(event));
   
-
   function updateLikes(e){
-  //   e.preventDefault();
-  //      let newNumber=parseInt(e.target.nextElementSibling.innerText)+1
-  //    fetch(`http://localhost:3000/products/${e.target.id}`,{
-  //      method:"PATCH",
-  //      headers:{
-  //        "Content-Type":"application/json",
-  //        "Accept": "application/json"
-  //      },
-  //        body: JSON.stringify({
-  //          likes: newNumber
-  //    })
-  //  })
-  //    .then(response=>response.json())
-  //    .then(e=>e.target.nextElementSibling.innerText=`${newNumber} likes`)
+    const id=parseInt(e.target.id)
+    const product=Product.findById(id)
+    if (e.target.className="up-btn"){
+      product.likes+=1;
+    } else if(e.target.className="down-btn"){
+      product.likes=-1;
+      debugger;
+    } else {
+      product.likes
+    }
+
+    fetch(`http://localhost:3000/products/${product.id}`,{
+        method:"PATCH",
+        headers:{
+          "Content-Type":"application/json",
+            "Accept": "application/json"
+          },
+            body: JSON.stringify(product)
+           })
+             .then(response=>response.json())
+             .then(function(product){
+               document.querySelector(`#like-${product.id}`).innerText=`${product.likes} likes`;
+              })
+  }
+
+
+   function viewReviews(e){
+
    }
    
 

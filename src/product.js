@@ -42,10 +42,14 @@ class Product {
         downButton.innerText="▼";
         downButton.setAttribute("class","down-btn");
         downButton.setAttribute("id",this.id);
+
+        upButton.addEventListener("click",e=> updateLikes(e));
+        downButton.addEventListener("click", e=>updateLikes(e));
         
         let like=document.createElement("p");
         like.innerText=`${this.likes} like`;
         like.setAttribute("class","like");
+        like.setAttribute("id",`like-${this.id}`);
     
         let reviews=document.createElement("p")
         reviews.innerText=`${this.reviews.length} Reviews`;
@@ -55,9 +59,11 @@ class Product {
         productContainer.append(card);
       }
 
+    
     static findById(id){
         return this.all.find(product=>product.id===id);
     }
+
 }
 
 Product.all=[];
