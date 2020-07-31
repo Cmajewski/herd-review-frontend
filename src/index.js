@@ -74,7 +74,7 @@ function getProducts(){
 
     let category=document.createElement("p");
     category.innerText=product.category
-    category.setAttribute("class","category")
+    category.setAttribute("class","card-format")
 
     let img=document.createElement("img");
     img.src=product.image_url;
@@ -96,12 +96,36 @@ function getProducts(){
     let like=document.createElement("p");
     like.innerText=`${product.likes} like`;
     like.setAttribute("class","like");
-    
-   
-    card.append(name,brand,category,description,img,upButton,downButton,like);
-      productContainer.append(card);
+
+    upButton.addEventListener("click", event=>updateLikes(event));
+    downButton.addEventListener("click", event=> decreaseLikes(event));
+
+    let reviews=document.createElement("p")
+    reviews.innerText=`${product.reviews.length} Reviews`;
+    reviews.setAttribute("class","card-format")
+      
+    card.append(name,brand,category,description,img,reviews,upButton,like,downButton);
+    productContainer.append(card);
 
   }
+
+  function updateLikes(e){
+  //   e.preventDefault();
+  //      let newNumber=parseInt(e.target.nextElementSibling.innerText)+1
+  //    fetch(`http://localhost:3000/products/${e.target.id}`,{
+  //      method:"PATCH",
+  //      headers:{
+  //        "Content-Type":"application/json",
+  //        "Accept": "application/json"
+  //      },
+  //        body: JSON.stringify({
+  //          likes: newNumber
+  //    })
+  //  })
+  //    .then(response=>response.json())
+  //    .then(e=>e.target.nextElementSibling.innerText=`${newNumber} likes`)
+   }
+   
 
 
 // -----------
@@ -163,26 +187,26 @@ function getProducts(){
                 
                 //   }
                 
-                // function updateLikes(e){
-                  //   e.preventDefault();
-                  //   let newNumber=parseInt(e.target.previousElementSibling.innerText)+1
-                  //   fetch(`http://localhost:3000/products/${e.target.id}`,{
-                    //     method:"PATCH",
-//     headers:{
-  //       "Content-Type":"application/json",
-  //       "Accept": "application/json"
-  //     },
-  //     body: JSON.stringify({
-    //       likes: newNumber
-//     })
-//   })
-//   .then(function(response){
-  //     response.json();
+  // function updateLikes(e){
+  //    e.preventDefault();
+  //     let newNumber=parseInt(e.target.previousElementSibling.innerText)+1
+  //     fetch(`http://localhost:3000/products/${e.target.id}`,{
+  //       method:"PATCH",
+  //       headers:{
+  //         "Content-Type":"application/json",
+  //         "Accept": "application/json"
+  //       },
+  //         body: JSON.stringify({
+  //           likes: newNumber
+  //     })
   //   })
-  //   .then(function(object){
-    //     e.target.previousElementSibling.innerText=`${newNumber} likes`
-    //   })
-    // }
+  //     .then(function(response){
+  //       response.json();
+  //     })
+  //     .then(function(object){
+  //       e.target.previousElementSibling.innerText=`${newNumber} likes`
+  //     })
+  //   }
     
     // document.addEventListener("DOMContentLoaded", () => {
       //   getproducts(); 
