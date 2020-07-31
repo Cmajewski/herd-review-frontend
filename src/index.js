@@ -68,29 +68,27 @@ function getProducts(){
 
   
   function updateLikes(e){
-    e.preventDefault();
+
     const id=parseInt(e.target.id)
     const product=Product.findById(id)
-    if (e.target.className="up-btn"){
+
+    if (e.target.className==="up-btn"){
       product.likes+=1;
-    } else if(e.target.className="down-btn"){
-      product.likes=-1;
-      debugger;
     } else {
-      product.likes
+      product.likes=-1;
     }
 
     fetch(`http://localhost:3000/products/${product.id}`,{
-        method:"PATCH",
-        headers:{
-          "Content-Type":"application/json",
-            "Accept": "application/json"
-          },
-            body: JSON.stringify(product)
-           })
-             .then(response=>response.json())
-             .then(function(product){
-               document.querySelector(`#like-${product.id}`).innerText=`${product.likes} likes`;
-              })
+      method:"PATCH",
+      headers:{
+        "Content-Type":"application/json",
+          "Accept": "application/json"
+        },
+      body: JSON.stringify(product)
+        })
+    .then(response=>response.json())
+    .then(function(product){
+      document.querySelector(`#like-${product.id}`).innerText=`${product.likes} likes`;
+    })
   }
 

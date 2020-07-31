@@ -46,7 +46,9 @@ class Product {
         downButton.setAttribute("id",this.id);
 
         upButton.addEventListener("click",e=> updateLikes(e));
-        downButton.addEventListener("click", e=>updateLikes(e));
+        downButton.addEventListener("click", e=>{
+            debugger;
+            updateLikes(e)});
         
         let like=document.createElement("p");
         like.innerText=`${this.likes} like`;
@@ -59,7 +61,7 @@ class Product {
 
         reviews.addEventListener("click", e=>this.displayReviews(e));
           
-        card.append(name,brand,category,description,img,reviews,upButton,like,downButton);
+        card.append(name,brand,category,description,img,reviews,upButton,downButton,like);
         productContainer.append(card);
       }
 
