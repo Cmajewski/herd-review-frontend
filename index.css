@@ -25,25 +25,45 @@ body {
   }
   
   .card {
-    text-align: center;
+    justify-self: center;
     border: grey solid 1px;
-    padding: 1rem;
-    width: 15rem;
-    height: 25rem;
+    padding: 3rem;
+    margin: 1rem;
+    width: 90%;
     display: inline-grid;
-    margin: 1rem 2rem;
+    position: relative;
     box-shadow: 3px 4px #ff5757
+  }
+  .category{
+    color: #ff5757;
   }
   
   .product-avatar {
-    justify-self: center;
+    /* justify-self: center; */
+    margin: 1rem;
     height: 12rem;
     width: auto;
+  }
+  .up-btn {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+  }
+  .down-btn {
+    position: absolute;
+    top: 90px;
+    right: 50px;
+  }
+  .like {
+    position: absolute;
+    top: 60px;
+    right: 100px;
   }
   
   button {
     position: relative;
     background-color: #ff5757;
+    margin: .5rem;
     border: none;
     border-radius: 5px;
     height: 3rem;

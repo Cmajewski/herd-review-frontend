@@ -69,33 +69,36 @@ function getProducts(){
     let name=document.createElement("h3")
     name.innerText=product.name
 
-    let brand=document.createElement("h2")
+    let brand=document.createElement("h4")
     brand.innerText=product.brand
+
+    let category=document.createElement("p");
+    category.innerText=product.category
+    category.setAttribute("class","category")
 
     let img=document.createElement("img");
     img.src=product.image_url;
     img.setAttribute("class","product-avatar");
 
-    let category=document.createElement("p");
-    category.innerText=product.category
-
     let description=document.createElement("p");
     description.innerText=product.description
 
+    let upButton=document.createElement("button");
+    upButton.innerText="▲";
+    upButton.setAttribute("class","up-btn");
+    upButton.setAttribute("id",product.id);
+    
+    let downButton=document.createElement("button");
+    downButton.innerText="▼";
+    downButton.setAttribute("class","down-btn");
+    downButton.setAttribute("id",product.id);
+    
     let like=document.createElement("p");
     like.innerText=`${product.likes} like`;
-
-    let upButton=document.createElement("button");
-      upButton.innerText="▲";
-      upButton.setAttribute("class","like-btn");
-      upButton.setAttribute("id",product.id);
-
-    let downButton=document.createElement("button");
-      downButton.innerText="▼";
-      downButton.setAttribute("class","like-btn");
-      downButton.setAttribute("id",product.id);
-
-      card.append(name,brand,img,category,description,like,upButton,downButton);
+    like.setAttribute("class","like");
+    
+   
+    card.append(name,brand,category,description,img,upButton,downButton,like);
       productContainer.append(card);
 
   }
