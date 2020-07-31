@@ -65,13 +65,10 @@ class Product {
 
       displayReviews(e){
           const card=e.target.parentNode
-      
-        //   if (card.childNode) {
-        //     reviewCard.style.display = "block";
-        //   } else {
-        //     reviewCard.style.display = "none";
-        //   }
-        debugger;
+            let reviewExists=card.querySelector(".review-card")
+          if (reviewExists) {
+            card.querySelectorAll(".review-card").forEach(e=>e.remove());
+          } else {
           this.reviews.forEach(review=>{
             let reviewCard=document.createElement("div");
             reviewCard.setAttribute("class","review-card")
@@ -87,8 +84,7 @@ class Product {
             reviewCard.append(name,rating,comment);
             card.append(reviewCard)
           })
-
-          
+        } 
       }
 
     
