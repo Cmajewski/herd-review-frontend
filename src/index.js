@@ -27,7 +27,10 @@ function getProducts(){
     fetch ("http://localhost:3000/products")
     .then(response=>response.json())
     .then(product=>{
-      product.forEach(product=>createProductCard(product)) 
+      product.forEach(product=>{
+        let newProduct = new Product(product);
+        newProduct.createProductCard();
+      }) 
     })
   }
 
@@ -56,58 +59,16 @@ function getProducts(){
       body: JSON.stringify(bodyData)
     })
     .then(response=>response.json()) 
-    .then(product=>createProductCard(product)); 
+    .then(product=>{
+      let newProduct = new Product(product);
+        newProduct.createProductCard();
+    })
   }
 
 
-
-  function createProductCard(product){
-    const productContainer=document.querySelector("#product-collection");
-    let card=document.createElement("div");
-    card.setAttribute("class","card");
-
-    let name=document.createElement("h3")
-    name.innerText=product.name
-
-    let brand=document.createElement("h4")
-    brand.innerText=product.brand
-
-    let category=document.createElement("p");
-    category.innerText=product.category
-    category.setAttribute("class","card-format")
-
-    let img=document.createElement("img");
-    img.src=product.image_url;
-    img.setAttribute("class","product-avatar");
-
-    let description=document.createElement("p");
-    description.innerText=product.description
-
-    let upButton=document.createElement("button");
-    upButton.innerText="▲";
-    upButton.setAttribute("class","up-btn");
-    upButton.setAttribute("id",product.id);
-    
-    let downButton=document.createElement("button");
-    downButton.innerText="▼";
-    downButton.setAttribute("class","down-btn");
-    downButton.setAttribute("id",product.id);
-    
-    let like=document.createElement("p");
-    like.innerText=`${product.likes} like`;
-    like.setAttribute("class","like");
-
-    upButton.addEventListener("click", event=>updateLikes(event));
-    downButton.addEventListener("click", event=> decreaseLikes(event));
-
-    let reviews=document.createElement("p")
-    reviews.innerText=`${product.reviews.length} Reviews`;
-    reviews.setAttribute("class","card-format")
-      
-    card.append(name,brand,category,description,img,reviews,upButton,like,downButton);
-    productContainer.append(card);
-
-  }
+  // upButton.addEventListener("click", event=>updateLikes(event));
+  // downButton.addEventListener("click", event=> decreaseLikes(event));
+  
 
   function updateLikes(e){
   //   e.preventDefault();
