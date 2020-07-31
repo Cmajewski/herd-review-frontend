@@ -17,6 +17,7 @@ class Product {
         const productContainer=document.querySelector("#product-collection");
         let card=document.createElement("div");
         card.setAttribute("class","card");
+        card.setAttribute("id",`card-${this.id}`);
     
         let name=document.createElement("h3")
         name.innerText=this.name
@@ -46,9 +47,7 @@ class Product {
         downButton.setAttribute("id",this.id);
 
         upButton.addEventListener("click",e=> updateLikes(e));
-        downButton.addEventListener("click", e=>{
-            debugger;
-            updateLikes(e)});
+        downButton.addEventListener("click", e=>updateLikes(e));
         
         let like=document.createElement("p");
         like.innerText=`${this.likes} like`;
@@ -59,11 +58,20 @@ class Product {
         reviews.innerText=`${this.reviews.length} Reviews`;
         reviews.setAttribute("class","button")
 
+        let removeButton=document.createElement("button");
+        removeButton.innerText="X";
+        removeButton.setAttribute("class","delete-button")
+        removeButton.setAttribute("id",`${this.id}`)
+
+
+        removeButton.addEventListener("click", e=>removeProduct(e));
         reviews.addEventListener("click", e=>this.displayReviews(e));
           
-        card.append(name,brand,category,description,img,reviews,upButton,downButton,like);
+        card.append(name,brand,category,description,img,reviews,upButton,downButton,like,removeButton);
         productContainer.append(card);
       }
+
+
 
       displayReviews(e){
           const card=e.target.parentNode
@@ -90,6 +98,7 @@ class Product {
       }
 
     
+
     static findById(id){
         return this.all.find(product=>product.id===id);
     }

@@ -75,7 +75,7 @@ function getProducts(){
     if (e.target.className==="up-btn"){
       product.likes+=1;
     } else {
-      product.likes=-1;
+      product.likes-=1;
     }
 
     fetch(`http://localhost:3000/products/${product.id}`,{
@@ -92,3 +92,26 @@ function getProducts(){
     })
   }
 
+
+  function removeProduct(e){
+    const id=parseInt(e.target.id)
+    const product=Product.findById(id)
+  
+    fetch(`http://localhost:3000/products/${product.id}`, {
+      method: "DELETE",
+      headers:{
+        "Content-Type":"application/json",
+          "Accept": "application/json"
+        },
+      body: JSON.stringify(product)
+        })
+        .then(response=>response.json())
+        .then(e=>deleteProductCard(product.id))
+
+}
+
+
+function deleteProductCard(id){
+  const card=document.querySelector(`#card-${id}`)
+  card.remove()
+}
